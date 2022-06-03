@@ -24,7 +24,7 @@ srand(time(0));
 	}
 	else
 	{
-		printf("%d is Zerioo \n", n);
+		printf("%d is Zero \n", n);
 	}
 	return (0);
 
