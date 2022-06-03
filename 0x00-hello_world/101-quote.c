@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <unistd.h>
-
 /**
- *main - Prints exactly 'and that piece of art is useful..'
- * - Dor korpar , 2015-10-19',
- *   followed by a new lin, to the standart erro.
- *   Return aways 0 (sucess).
+ * main -start point
+ * Description:no print
+ * Return: return 1 means succes
  */
-
 int main(void)
 {
-	write(2, "and that piece of art is useful \" - Dora korpar,
-			2015-10-19 \n", 59);
-	return (1);
-
+	char str1[] = "and that piece of art is useful\"
+		- Dora Korpar,2015-10-19\n";
+write(2, str1, 59);
+return (1);
 }
