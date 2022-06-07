@@ -1,11 +1,12 @@
-#include<main.h>
+#include"main.h"
 /**
- * main - a program that prints _putchar, followed by a new line.
+ * Returns putchar.
  * Return: it returnts to 0
  */
 int main(void)
 {
 	char *sh = "_putchar";
+
 	while (*sh)
 	{
 		_putchar(*sh);
