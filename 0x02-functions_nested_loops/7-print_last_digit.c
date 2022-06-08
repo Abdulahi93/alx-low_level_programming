@@ -1,15 +1,27 @@
-#include"main.h"
+#include "main.h"
 /**
- * print_last_digit - prints the last digit of a numer.
- *  @nld: digit to find the last place of
- *  Return: The last digit.
+ * _abs- returns 1 if n is lowercase, 0 otherwise
+ * @n: integer to be checked
+ * Return: abs(n)
  */
-
-int print_last_digit(int nld)
-
+int _abs(int n)
 {
-	if (nld < 0)
-	nld = nld * -1;
-	_putchar((nld % 10) + '0');
-	return (nld % 10);
+	if (n >= 0)
+	return (n);
+	else
+	return (-1 * n);
+}
+/**
+ * print_last_digit - pritns the last digit of n
+ * @nld: integer whose last digit is displayed
+ * Return: lastdigit of number
+ */
+int print_last_digit(int nld)
+{
+	int ld;
+
+	ld = _abs((nld % 10));
+
+	_putchar(ld + 48);
+	return (ld);
 }
