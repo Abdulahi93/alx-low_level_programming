@@ -1,5 +1,4 @@
 #include"main.h"
-int _putchar(char c);
 /**
  *print_times_table -print the time table until n.
  * @n: n times table
@@ -23,8 +22,8 @@ void print_times_table(int n)
 						_putchar(' ');
 						_putchar(' ');
 						_putchar((((j * i) / 10) % 10) + '0');
-						 _putchar(((j * 1) % 10) + '0');
 					}
+					_putchar(((j * 1) % 10) + '0');
 				}
 					else if ((i * j) < 100)
 					{
