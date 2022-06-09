@@ -12,7 +12,7 @@ int main(void)
 	int lim = 1024;
 
 	while (i == 0)
-
+	{
 		if (m3 < lim)
 		{
 			sum += m3;
@@ -30,6 +30,8 @@ int main(void)
 	if (m3 >= lim && m5 >= lim)
 	{
 		i = 1;
+	}
+
 	}
 	printf("%d\n", sum);
 	return (0);
