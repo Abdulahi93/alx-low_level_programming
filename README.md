@@ -1,2 +1,1 @@
- Low Level programming 
-Debugging
+ Debuggin 
