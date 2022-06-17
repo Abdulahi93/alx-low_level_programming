@@ -1,31 +1,29 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * wildcmp - Compare strings
- * @s1: pointer to string params
- * @s2: pointer to string params
- * Return: 0
+ * rot13 - encoder rot13
+ * @s: pointer to string params
+ * Return: *s
  */
 
-int wildcmp(char *s1, char *s2)
+char *rot13(char *s)
 {
-	if (*s1 == '\0')
+	int i;
+	int j;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (*s2 != '\0' && *s2 == '*')
+		for (j = 0; j < 52; j++)
 		{
-
-			return (wildcmp(s1, s2 + 1));
+			if (s[i] == data1[j])
+			{
+				s[i] = datarot[j];
+				break;
+			}
 		}
-		return (*s2 == '\0');
 	}
-
-	if (*s2 == '*')
-	{
-		return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
-	}
-	else if (*s1 == *s2)
-	{
-		return (wildcmp(s1 + 1, s2 + 1));
-	}
-	return (0);
+	return (s);
 }
