@@ -2,84 +2,47 @@
 #include <stdlib.h>
 
 /**
- * _strlen_recursion - function that returns the length of a string
- * @s: char pointer for string
- * Return: int for length of string
+ * string_nconcat - concatenates two strings.
+ * @s1: first string.
+ * @s2: second string.
+ * @n: amount of bytes.
+ * Return: pointer to the allocated memory.
+ * if malloc fails, status value is equal to 98.
  */
 
-int _strlen_recursion(char *s)
-
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	if (*s)
-		return (_strlen_recursion(s + 1) + 1);
-
-
-	return (0);
-}
-
-
-/*
-
- * string_nconcat - function tat concatenates two strings with malloc'd memory
-
- * @s1: Char pointer for string1
-
- * @s2: Char pointer for string 
-
- * @n: Unsigned int for memory size to be allocted
-
- * Return: Char pointer of concatenated string pinted to a newly allocated
-
- * space in memory, return NULL if function fails
- */
-
-
-har *string_nconcat(char *s1, char *s2, unsigned int n)
-
-{
-	char *a;
-	unsigned int i, j, l1, l2, size;
+	char *sout;
+	unsigned int ls1, ls2, lsout, i;
 
 	if (s1 == NULL)
 		s1 = "";
 
-
 	if (s2 == NULL)
 		s2 = "";
 
+	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
+		;
 
-	l1 = _strlen_recursion(s1);
-	l2 = _strlen_recursion(s2);
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+		;
 
+	if (n > ls2)
+		n = ls2;
+	lsout = ls1 + n;
 
-	if (n >= l2)
-		size = l1 + l2 + 1;
+	sout = malloc(lsout + 1);
 
-
-	if (n < l2)
-		size = l1 + n + 1;
-
-
-	a = malloc(sizeof(char) * size);
-
-
-	if (a == NULL)
+	if (sout == NULL)
 		return (NULL);
 
+	for (i = 0; i < lsout; i++)
+		if (i < ls1)
+			sout[i] = s1[i];
+		else
+			sout[i] = s2[i - ls1];
 
-	for (i = 0; s1[i] != '\0'; i++)
-		a[i] = s1[i];
+	sout[i] = '\0';
 
-
-	if (n >= l2)
-		for (j = 0; s2[j] != '\0'; j++)
-			a[i + j] = s2[j];
-
-
-	if (n < l2)
-		for (j = 0; j < n; j++)
-			a[i + j] = s2[j];
-
-	a[i + j] = '\0';
-	return (a);
+	return (sout);
 }
